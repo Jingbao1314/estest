@@ -19,28 +19,28 @@ public class CreateIndex {
         try (RestHighLevelClient client = InitClient.getClient();) {
 
             // 1、创建 创建索引request 参数：索引名mess
-            CreateIndexRequest request = new CreateIndexRequest("mess");
+            CreateIndexRequest request = new CreateIndexRequest("person");
 
             // 2、设置索引的settings
-            request.settings(Settings.builder().put("index.number_of_shards", 3) // 分片数
-                    .put("index.number_of_replicas", 2) // 副本数
-                    .put("analysis.analyzer.default.tokenizer", "ik_smart") // 默认分词器
-            );
-//
-//            // 3、设置索引的mappings
-//            request.mapping("_doc",
-//                    "  {\n" +
-//                            "    \"_doc\": {\n" +
-//                            "      \"properties\": {\n" +
-//                            "        \"message\": {\n" +
-//                            "          \"type\": \"text\"\n" +
-//                            "        }\n" +
-//                            "      }\n" +
-//                            "    }\n" +
-//                            "  }",
-//                    XContentType.JSON);
-//
-//            // 4、 设置索引的别名
+//            request.settings(Settings.builder().put("index.number_of_shards", 3) // 分片数
+//                    .put("index.number_of_replicas", 2) // 副本数
+//                    .put("analysis.analyzer.default.tokenizer", "ik_smart") // 默认分词器
+//            );
+
+            // 3、设置索引的mappings
+            request.mapping("student",
+                    "  {\n" +
+                            "    \"student\": {\n" +
+                            "      \"properties\": {\n" +
+                            "        \"name\": {\n" +
+                            "          \"type\": \"text\"\n" +
+                            "        }\n" +
+                            "      }\n" +
+                            "    }\n" +
+                            "  }",
+                    XContentType.JSON);
+
+            // 4、 设置索引的别名
 //            request.alias(new Alias("mmm"));
 
             // 5、 发送请求
