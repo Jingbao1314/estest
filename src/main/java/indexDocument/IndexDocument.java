@@ -23,8 +23,8 @@ public class IndexDocument {
         try (RestHighLevelClient client = InitClient.getClient();) {
             // 1、创建索引请求
             IndexRequest request = new IndexRequest(
-                    "person",   //索引
-                    "student",     // mapping type
+                    "buisness",   //索引
+                    "man",     // mapping type
                     "1");     //文档id
 
             // 2、准备文档数据

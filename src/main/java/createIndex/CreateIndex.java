@@ -19,7 +19,7 @@ public class CreateIndex {
         try (RestHighLevelClient client = InitClient.getClient();) {
 
             // 1、创建 创建索引request 参数：索引名mess
-            CreateIndexRequest request = new CreateIndexRequest("person");
+            CreateIndexRequest request = new CreateIndexRequest("testxxxxs");
 
             // 2、设置索引的settings
 //            request.settings(Settings.builder().put("index.number_of_shards", 3) // 分片数
@@ -28,11 +28,20 @@ public class CreateIndex {
 //            );
 
             // 3、设置索引的mappings
-            request.mapping("student",
+            request.mapping("women",
                     "  {\n" +
-                            "    \"student\": {\n" +
+                            "    \"women\": {\n" +
                             "      \"properties\": {\n" +
-                            "        \"name\": {\n" +
+                            "        \"one\": {\n" +
+                            "          \"type\": \"text\"\n" +
+                            "        },\n" +
+                            "        \"two\": {\n" +
+                            "          \"type\": \"text\"\n" +
+                            "        },\n" +
+                            "        \"three\": {\n" +
+                            "          \"type\": \"text\"\n" +
+                            "        },\n" +
+                            "        \"desc\": {\n" +
                             "          \"type\": \"text\"\n" +
                             "        }\n" +
                             "      }\n" +
