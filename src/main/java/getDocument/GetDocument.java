@@ -23,8 +23,8 @@ public class GetDocument {
         try (RestHighLevelClient client = InitClient.getClient();) {
             // 1、创建获取文档请求
             GetRequest request = new GetRequest(
-                    "person",   //索引
-                    "student",     // mapping type
+                    "ecommerce",   //索引
+                    "product",     // mapping type
                     "1");     //文档id
 
             // 2、可选的设置
