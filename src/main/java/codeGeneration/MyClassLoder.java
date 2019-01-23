@@ -21,7 +21,9 @@ public class MyClassLoder extends ClassLoader{
     }
 
     private boolean compile(String path) throws IOException, InterruptedException {
-        Process process=Runtime.getRuntime().exec("javac "+path+" "+"/home/jingbao/code/elastic/src/main/java/pojo/MyJson.java");
+        Process process=Runtime.getRuntime().exec("javac "+path+" " +
+                ""+"/home/jingbao/code/elastic/src/main/java/pojo/MyJson" +
+                ".java");
         process.waitFor();
         return process.exitValue()==0?true:false;
     }

@@ -3,6 +3,7 @@ package util;
 import codeGeneration.Analyzer;
 import indexDocument.IndexDocument;
 import pojo.MyJson;
+import pojo.SearchTitan;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

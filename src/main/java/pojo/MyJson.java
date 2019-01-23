@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 
 /**
  * @author jijngbao
- * @date 19-1-12
+ * @date 19-1-23
  */
 public class MyJson {
     public String toJson(Class c) throws ClassNotFoundException,
@@ -34,4 +34,5 @@ public class MyJson {
         sb.append("}");
         return sb.toString();
     }
+
 }

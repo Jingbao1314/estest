@@ -1,19 +1,17 @@
 package codeGeneration;
 
 import pojo.MyJson;
+import pojo.SearchTitan;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * @author jijngbao
@@ -36,7 +34,6 @@ public class Analyzer {
 //        className=className.substring(0,1)
 //                .toUpperCase()+className.substring(1,className.length());
         String result="";
-        ArrayList <String>fieldList=new ArrayList();
         FileChannel outChnall=new FileOutputStream(new File
                 ("/home/jingbao/code/elastic/src/main/java/pojo/"+className
                         +".java"))
@@ -44,6 +41,7 @@ public class Analyzer {
         ByteBuffer buff=ByteBuffer.allocate(1024*3);
         Charset charset=Charset.forName("utf-8");
         String[] list=data.split("[,]");
+        System.out.println(list.length);
         String head="package pojo;"+"\r\n"+"public class "+className+" " +
                 "extends" +
                 " " +
@@ -62,12 +60,11 @@ public class Analyzer {
 //                " get"+className+"(String [] data)" +
 //                "{\r\n"+"        ";
         for (int i=0;i<list.length;i++) {
-            if(i<list.length-1){
+            if(i<list.length){
 //                key=key+list[i].trim().substring(0,
 //                        1).toUpperCase()+list[i].trim().substring(1,list[i]
 //                        .trim().length());
 //                map.put(key,list[i+1]);
-                fieldList.add(list[i].trim());
                 head=head+"\r\n"+"    "+body+list[i].trim()+"=null;"+"\r\n";
                 head=head+"\r\n"+"    "+getMethod+list[i].trim().substring(0,
                         1).toUpperCase()+list[i].trim().substring(1,list[i]
@@ -84,10 +81,10 @@ public class Analyzer {
             }
         }
         head=head+"\r\n"+"    "+getGoods;
-        for (int i=0;i<fieldList.size()-1;i++) {
+        for (int i=0;i<list.length;i++) {
             head=head+"obj" +
-                    ".set"+ fieldList.get(i).substring(0,1).toUpperCase()+
-                    fieldList.get(i).substring(1,fieldList.get(i).length())
+                    ".set"+ list[i].substring(0,1).toUpperCase()+
+                    list[i].substring(1,list[i].length())
                     +"(data["+i+"]);" +
                     "\r\n"+"        ";
         }

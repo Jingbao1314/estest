@@ -4,6 +4,9 @@ https://blog.csdn.net/paditang/article/details/78802799 java客户端简介
 https://es.xiaoleilu.com/010_Intro/15_API.html  权威教程
 https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-supported-apis.html   官网API
 https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-document-index.html   官网API
+https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-search.html   search官网
 https://blog.csdn.net/h952520296/article/details/80995585   汉化
 https://www.cnblogs.com/wxw16/p/6156335.html   https://www.cnblogs.com/zhangs1986/p/7325504.html     kibana
 https://blog.csdn.net/gwd1154978352/article/details/82804942  kibana
+https://www.elastic.co/guide/cn/elasticsearch/guide/current/_how_match_uses_bool.html  match和bool查询的等价转化
+https://blog.csdn.net/qq_35393693/article/details/80143287  组合查询
