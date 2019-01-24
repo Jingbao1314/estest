@@ -3,7 +3,7 @@ package util;
 import codeGeneration.Analyzer;
 import indexDocument.IndexDocument;
 import pojo.MyJson;
-import pojo.SearchTitan;
+//import pojo.SearchTitan;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -37,7 +37,7 @@ public class FileUtil {
             }else {
                 MyJson obj= (MyJson) method.invoke(null, new
                         Object[]{line.split("[,]")});
-                IndexDocument.put("my0039",obj.toJson(clazz));
+//                IndexDocument.put("my0039",obj.toJson(clazz));
             }
             flag++;
 //            if (line.substring(0,6)=="goods:"){

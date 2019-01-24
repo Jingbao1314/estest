@@ -29,7 +29,8 @@ public class SearchDocument {
 //    private static Logger logger = LogManager.getRootLogger();
 
     public static void main(String[] args) throws IOException {
-        groupSearch("my0039","goods","{\"size\":\"41\"}");
+        groupSearch("my0039","goods","{\"ctn\":\"40\"}");
+//        groupSearch("my0039","goods","{\"size\":\"41\"}");
 //        simpleSearch("my0039","goods","title","男士");
 
     }
@@ -210,8 +211,14 @@ public class SearchDocument {
         // 2、用SearchSourceBuilder来构造查询请求体 ,请仔细查看它的方法，构造各种查询的方法都在这。
         SearchSourceBuilder sourceBuilder = new SearchSourceBuilder();
         BoolQueryBuilder boolQueryBuilder= (BoolQueryBuilder) new SearchTitan
-                ().createBuilder(fields);
-
+                ().mustBuild(fields);
+//        if (fields.contains("ctn:")){
+//            boolQueryBuilder= (BoolQueryBuilder) new SearchTitan
+//                    ().mustBuild(fields);
+//        }else {
+//            boolQueryBuilder= (BoolQueryBuilder) new SearchTitan
+//                    ().createBuilder(fields);
+//        }
         sourceBuilder=sourceBuilder.query(boolQueryBuilder);
         sourceBuilder.from(0);
         sourceBuilder.size(10);
